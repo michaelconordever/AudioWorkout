@@ -1,0 +1,738 @@
+/*
+    AUDIO WORKOUT by MICHAEL CONOR DEVER
+*/
+
+/* ---------------------------------------------------
+    GENERIC STYLING
+----------------------------------------------------- */
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fafafa;
+    border: none;
+    outline
+}
+
+button:focus {outline:0;}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
+}
+
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dashed #ddd;
+    margin: 20px 0;
+}
+
+/* ---------------------------------------------------
+    TOP NAVBAR STYLING
+----------------------------------------------------- */
+
+.navbar {
+    padding: 16px 10px;
+    border: none;
+    border-radius: 0;
+    background: teal;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-btn {
+    box-shadow: none;
+    outline: none !important;
+    border: none;
+}
+
+.logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    border: 0px;
+}
+
+
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+    *perspective: 1500px;
+}
+
+
+#sidebar {
+    min-width: 75vw;
+    max-width: 75vw;
+    background: #333;
+    color: #fff;
+    transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
+    transform-origin: bottom left;
+}
+
+#sidebar.active {
+    margin-left: -75vw;
+    transform: rotateY(100deg);
+}
+
+#sidebar .sidebar-header {
+    padding: 15px;
+    background: teal;
+    border-right-style: solid;
+    border-right-width: 2px;
+    border-right-color: #333;
+    text-align: center;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #fff;
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+
+#sidebar ul li a:hover {
+    color: #111;
+    background: #fff;
+}
+
+#sidebar ul li.active > a,
+a[aria-expanded="true"] {
+    color: teal;
+    font-weight: bold;
+    background: #fff;
+}
+
+#sidebarCollapse {
+    width: 40px;
+    height: 40px;
+    background: teal;
+    cursor: pointer;
+}
+
+#sidebarCollapse:hover {
+    background: #333;
+}
+
+#sidebarCollapse span {
+    width: 80%;
+    height: 2px;
+    margin: 0 auto;
+    display: block;
+    background: white;
+    transition: all 0.8s cubic-bezier(0.810, -0.330, 0.345, 1.375);
+    transition-delay: 0.2s;
+}
+
+#sidebarCollapse span:first-of-type {
+    transform: rotate(45deg) translate(2px, 2px);
+}
+
+#sidebarCollapse span:nth-of-type(2) {
+    opacity: 0;
+}
+
+#sidebarCollapse span:last-of-type {
+    transform: rotate(-45deg) translate(1px, -1px);
+}
+
+
+#sidebarCollapse.active span {
+    transform: none;
+    opacity: 1;
+    margin: 5px auto;
+}
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: teal;
+}
+
+ul.CTAs {
+    padding: 20px;
+}
+
+ul.CTAs a {
+    text-align: center;
+    font-size: 0.9em !important;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+a.download {
+    background: #fff;
+    color: teal;
+}
+
+ul.social {
+    color: white;
+}
+
+#instructions {
+    text-align: center;
+}
+
+/* ---------------------------------------------------
+    SCORE MENU
+----------------------------------------------------- */
+#setBtn {
+    position:fixed;
+    right: 25px;
+    top: 18px;
+}
+
+.settingsWrap {
+    height: 90vh;
+    color: white;
+    background-color:teal;
+    padding-top: 10px;
+    padding-left: 8px;
+    margin-top:40px;
+    text-align: center;
+}
+
+.settingsWrap h1 {
+    color: white;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.settingsWrap h2 {
+    color: #333;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.settingsWrap h3 {
+    color: white;
+    font-size: 1.8em;
+}
+
+
+/* ---------------------------------------------------
+    MAIN ELEMENTS
+----------------------------------------------------- */
+#content {
+    width: 100%;
+    padding: 0px;
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+
+.contentContainer {
+    padding-top: 20px;
+}
+
+.contentContainer h1
+{
+    color: #333;
+    font-size:2em;
+    text-align:center;
+}
+
+.contentContainer h2
+{
+    color: #333;
+    font-size:1.5em;
+    text-align:center;
+}
+
+.singleRow {
+    padding-top: 30px;
+    text-align:center;
+}
+
+.singleRow p {
+    padding-top:30px;
+    color:black;
+}
+
+/* ---------------------------------------------------
+    ICONS
+----------------------------------------------------- */
+.pitchIcon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+}
+
+.iconContainer {
+    position: relative;
+    font-size:1.5em;
+    text-align:center;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.iconContainer:hover .overlay {
+  opacity: .7;
+    border-radius: 50%;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: teal;
+    border-radius: 50%;
+}
+
+.iconBorder {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: 120px;
+    background: #333;
+    border-radius: 50%;
+}
+
+.iconBorder:hover {
+    -webkit-border-radius: 60%;
+    -moz-border-radius: 60%;
+    border-radius: 60%;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,128,128 ,1 );
+    -moz-box-shadow: 0px 0px 60% 0px rgba(0,128,128 ,1 );
+    box-shadow: 0px 0px 60% 0px rgba(0,128,128 ,1 );
+}
+
+.iconBorder:hover .singleRow p {
+    text-shadow: 0 0 32px black;
+}
+
+.iconPitchCircle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 110px;
+    height: 110px;
+    background: teal;
+    border-radius: 50%;
+}
+
+/* ---------------------------------------------------
+    MEDIAQUERIES - Closes sidebar on small screens
+----------------------------------------------------- */
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -75vw;
+        transform: rotateY(90deg);
+    }
+
+    #sidebar.active {
+        margin-left: 0;
+        transform: none;
+    }
+
+    #sidebarCollapse span:first-of-type,
+    #sidebarCollapse span:nth-of-type(2),
+    #sidebarCollapse span:last-of-type {
+        transform: none;
+        opacity: 1;
+        margin: 5px auto;
+    }
+
+    #sidebarCollapse.active span {
+        margin: 0 auto;
+    }
+
+    #sidebarCollapse.active span:first-of-type {
+        transform: rotate(45deg) translate(2px, 2px);
+    }
+
+    #sidebarCollapse.active span:nth-of-type(2) {
+        opacity: 0;
+    }
+
+    #sidebarCollapse.active span:last-of-type {
+        transform: rotate(-45deg) translate(1px, -1px);
+    }
+
+}
+
+/* ---------------------------------------------------
+    FOOTER
+----------------------------------------------------- */
+.footerSpacer {
+    padding-top:60px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    line-height: 40px;
+    /* Vertically center the text there */
+    background-color: teal;
+    animation-duration: 1.5s;
+}
+
+.footerNav {
+    font-size: 1em;
+}
+
+.footerNav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footerNav li {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+
+.footerNav li:hover:not(.active) {
+    background-color: #111;
+}
+
+.footerNav .active {
+    background-color: teal;
+}
+
+#openMenuItem {
+    position: relative;
+    animation-duration: 5s;
+}
+
+#collapsedMenuItem {
+    position: relative;
+    animation-duration: 2s;
+}
+
+/* ---------------------------------------------------
+    QUIZ
+----------------------------------------------------- */
+
+.quizWrapper {
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+  font-weight: 300;
+  text-align: center;
+  background-color: teal;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+.quizWrapper h1{
+  font-weight: 300;
+  margin: 0px;
+  padding: 10px;
+  font-size: 20px;
+  background-color: #333;
+  color: #fff;
+}
+
+.quizWrapper h3{
+    padding-top: 10px;
+    padding-left: 10px;
+    text-align: left;
+    font-size: 15px;
+    color: #333;
+    
+}
+
+#controlMenu {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    height: 20%;
+    display:none;
+}
+
+
+.buttonColumn {
+  float: left;
+  width: 33.33%;
+    border: none;
+    outline: none;
+}
+
+#pauseBtn {
+    display:none;
+}
+
+
+#backBtn {
+    text-align: center;
+}
+
+#loopBtn {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    color: #333;
+    border: 0px;
+    width: 60%;
+    border-radius: 5px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    
+    margin-top: 55px;
+}
+
+#loopToggle {
+    padding-top: 10px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.question{
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+.answers {
+  margin-bottom: 20px;
+  text-align: left;
+  display: inline-block;
+}
+.answers label{
+  display: block;
+  margin-bottom: 10px;
+}
+.quizWrapper button{
+  font-family: 'Work Sans', sans-serif;
+    font-size: 22px;
+    background-color: #fff;
+    color: #333;
+    border: 0px;
+    border-radius: 3px;
+    padding: 20px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.quizWrapper button:hover{
+    background-color: #f1f;
+}
+
+#qContainer{
+    /*margin : 20px auto; */
+    background-color: TEAL;
+    height: 80%;
+    width : 100%;
+     /*border-radius: 5px; */
+    /*box-shadow: 0px 5px 15px 0px; */
+    position: relative;
+}
+
+#questionsLayout{
+    display:flex;
+}
+#question{
+    width:100%;
+    position: relative;
+    right:0;
+    top:0;
+}
+#question p{
+    margin : 0;
+    padding : 15px;
+    margin-top: 10%;
+    font-size: 1.5em;
+    color:#333;
+}
+
+#choices{
+    width : 100%;
+    height: 100%;
+    position: relative;
+    padding : 10px
+        
+}
+.choice{
+    background-color:#fff;
+    display: relative;
+   margin-top: 5%;
+    margin-bottom: 5%;
+    width : 60%;
+    text-align: center;
+    border : 2px solid #333;
+    border-radius: 5px;
+    cursor: pointer;
+    padding : 5px;
+    
+  
+  display: inline-block;
+}
+.choice:hover{
+    border : 2px solid grey;
+    font-weight: bold;
+}
+
+
+#progress{
+    width : 10%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 5%;
+    text-align: right;
+}
+.prog{
+    width : 25px;
+    height : 25px;
+    border: 1px solid #000;
+    display: inline-block;
+    border-radius: 50%;
+    margin-left : 5px;
+    margin-right : 5px;
+}
+#scoreContainer {
+    margin : 20px auto;
+    /*margin : 20px auto; */
+    background-color: white;
+    height: 100%;
+    width : 100%;
+    opacity: 0.8;
+    border-radius: 5px;
+    box-shadow: 0px 5px 15px 0px;
+     /*border-radius: 5px; */
+    /*box-shadow: 0px 5px 15px 0px; */
+    position: relative;
+    display:none;
+}
+#scoreContainer img{
+    position: relative;
+     width: 10%;
+  margin: 0 auto;
+    display: inline-block;
+}
+#scoreContainer p{
+    position: relative;
+    width : 100%;
+     width: 100%;
+  margin: 0 auto;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* ---------------------------------------------------
+    QUIZ MENU
+----------------------------------------------------- */
+.quizMenuWrap {
+    height: 100vh;
+    width: 100vw;
+    background-color: teal;
+    color: white;
+    text-align:center;
+}
+
+.quizMenuWrap h1 {
+    padding-top:5%;
+    color: white;
+    font-size: 2.5em;
+}
+
+.quizMenuWrap h2 {
+    font-size: 1.5em;
+}
+
+.quizMenuWrap h3 {
+    color: white;
+    font-size: 2em;
+}
+
+#quizLayout {
+    width:100%;
+    height:16.6%;
+    position: relative;
+}
+
+.quizMenuWrap button{
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.6em;
+    background-color: #fff;
+    color: #333;
+    border: 0px;
+    border-radius: 10px;
+    padding: 20px;
+    cursor: pointer;
+}
+
+#menuTrophy {
+    font-size:3em;
+    color: #333;
+}
+#closeBtn{
+   position:absolute;
+    top:8%;
+    right:5%;
+    padding: 0px;
+     background-color: teal;
+    font-size: 2.5em;
+}
+.closeMenu {
+    position: absolute;
+    right 0;
+    top 0;
+}

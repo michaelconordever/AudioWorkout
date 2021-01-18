@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Audio Workout - Train Your Ears</title>
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!--Font Awesome CSS (for Icons) -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!-- My Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!--HOMEPAGE -->
+    <div id="pitchGym" class="page">
+        <div class="wrapper">
+            <!-- POPOUT SIDEBAR HOMEPAGE -->
+            <nav id="sidebar">
+                <div class="sidebar-header">
+                    <h3>Instructions</h3>
+                </div>
+                <ul class="list-unstyled components">
+                    <p id="instructions">AudioWorkout is an educational music application, designed to help you improve your theory and listening skills!
+                        <br><br>Click on one of the icons to start a game!</p>
+                </ul>
+                <ul class="list-unstyled CTAs">
+                    <li>
+                        <div class="social">
+                            <a href="http://facebook.com/AudioWorkOutIfItExisted"><i class="fab fa-facebook-f fa-2x"></i></a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="social">
+                            <a href="http://twitter.com/AudioWorkOutIfItExisted"><i class="fab fa-twitter fa-2x"></i></a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <!-- TOP NAVBAR HOMEPAGE -->
+            <div id="content">
+                <nav class="navbar">
+                    <div class="container-fluid">
+                        <div id="sideBtn">
+                            <button name="sidebarBtn" type="button" data-menuHide="sideBar" id="sidebarCollapse" class="navbar-btn">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                        <div id="logoNav">
+                            <img class="logo" src="assets/images/logo.png" />
+                        </div>
+                        <!--POP DOWN SCORE MENU HOMEPAGE -->
+                        <div id="setBtn"><button name="settingsBtn" class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-settingsHide="settingsMenu" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <i class="fas fa-trophy"></i>
+                            </button></div>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <div class="settingsWrap">
+
+                                <ul class="nav navbar-nav ml-auto">
+                                    <li class="nav-item">
+                                        <h1>Your Score</h1>
+                                        <h2>Play more games to increase!</h2>
+                                        <div class="line"></div>
+                                    </li>
+                                    <li class="nav-item">
+                                        <div id="quizLayout"><i id="menuTrophy" class="fas fa-trophy"></i></div>
+                                        <div id="quizLayout">
+                                            <h3 id="displaySettingsUserScore"></h3>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="line"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <!--ICON LAYOUT HOMEPAGE -->
+                <div id="pageDesign">
+                    <div class="contentContainer">
+                        <h1>Pitch Gym</h1>
+                    </div>
+                    <div class="singleRow">
+                        <div class="iconContainer">
+                            <div class="iconBorder">
+                                <div class="iconPitchCircle">
+                                    <div id="intervalIcon">
+                                        <img class="pitchIcon" src="assets/images/Interval-Icon-White.png" />
+                                        <div class="overlay"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p>Interval<br>
+                            Identification</p>
+                    </div>  
+                    <div class="line"></div>
+                    <div class="singleRow">
+                        <div class="iconContainer">
+                            <div class="iconBorder">
+                                <div class="iconPitchCircle">
+                                    <div id="chordIcon">
+                                        <img class="pitchIcon" src="assets/images/Chord-Icon-White.png" />
+                                        <div class="overlay"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p>Chord<br>
+                            Game</p>
+                    </div>
+                    <div class="line"></div>
+                    <div class="singleRow">
+                        <div class="iconContainer">
+                            <div class="iconBorder">
+                                <div class="iconPitchCircle">
+                                    <div id="freqIcon">
+                                        <img class="pitchIcon" src="assets/images/Frequency-Icon-White.png" data-navPage="frequency" />
+                                        <div class="overlay"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p>Frequency<br>
+                            Accuracy</p>
+                    </div>
+                    <div class="footerSpacer"></div>
+                    <!-- Footer -->
+                    <footer class="footer">
+                        <nav class="footerNav">
+                            <ul>
+                                <li data-navPage="pitchGym" class="active"><i class="fas fa-music"></i><span id="openMenuItem"> Pitch Gym</span></li>
+
+                            </ul>
+                        </nav>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--QUIZ PAUSE MENU -->
+    <div class="quizMenuWrap">
+        <div id="quizLayout">
+            <h1 id="menuTitle">Paused</h1><button id=closeBtn><i class="fas fa-times"></i></button>
+        </div>
+        <div id="quizLayout"><button id="startAgain">Start Again <i class="fas fa-reply"></i></button></div>
+        <div id="quizLayout"><button id="backToMain">Main Menu <i class="fas fa-bars"></i></button></div>
+
+        <div class="line"></div>
+        <div id="quizLayout">
+            <h1>Your Score:</h1>
+        </div>
+        <div id="quizLayout"><i id="menuTrophy" class="fas fa-trophy"></i></div>
+        <div id="quizLayout">
+            <h3 id="displayUserScore"></h3>
+        </div>
+
+    </div>
+    <!--QUIZ SECTION -->
+    <div id="quizGame">
+        <div class="quizWrapper">
+            <h1 id="quizTitle"></h1>
+
+            <div id="qContainer">
+                <div id="questionsLayout">
+                    <div id="question"></div>
+                    <div id="choices">
+                        <div id="progress"></div>
+                        <div class="choice" id="A"></div>
+                        <div class="choice" id="B"></div>
+                        <div class="choice" id="C"></div>
+                    </div>
+
+                </div>
+                <div id="scoreContainer" style="display: none"></div>
+            </div>
+            <div id="controlMenu">
+                <div class="buttonColumn">
+                    <button id="playBtn"><i class="fas fa-play"></i></button>
+                </div>
+                <div class="buttonColumn">
+                    <button id="pauseBtn" hide><i class="fas fa-pause"></i></button>
+                </div>
+                <div class="buttonColumn">
+                    <div id="loopBtn"><i class="fas fa-retweet"></i>
+                        <div id="loopToggle"></div>
+                    </div>
+                </div>
+                <div class="buttonColumn">
+                    <button id="menuBtn"><i class="fas fa-bars"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <!-- NexusUI JS //-->
+    <script src="https://rawgit.com/nexus-js/ui/master/dist/NexusUI.js"></script>
+    <!-- Tone JS -->
+    <script src="tone.js"></script>
+    <!-- CUSTOM JS -->
+    <script src="script.js"></script>
+</body>
+
+</html>
